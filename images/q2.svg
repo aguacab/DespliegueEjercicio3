@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs>
+		<radialGradient id="e" cx="2999" cy="168.3" r="57.37" gradientTransform="matrix(.3486 0 0 .3486 -504.1 380.1)" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#fff" offset="0"/>
+			<stop stop-color="#d40000" offset="1"/>
+		</radialGradient>
+		<radialGradient id="i" cx="2999" cy="168.3" r="57.37" gradientTransform="matrix(.523 0 0 .523 -1278 201.4)" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#fff" offset="0"/>
+			<stop offset="1"/>
+		</radialGradient>
+	</defs>
+	<circle cx="300" cy="300" r="30" fill="url(#i)"/>
+	<g fill="none" stroke="#004fba" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+		<ellipse cx="300" cy="300" rx="81.46" ry="288.5"/>
+		<ellipse transform="rotate(-23.13)" cx="158" cy="393.7" rx="152.2" ry="288.5"/>
+		<ellipse transform="rotate(44.4)" cx="424.2" cy="4.428" rx="82.47" ry="288.5"/>
+		<ellipse transform="rotate(90)" cx="300" cy="-300" rx="82.47" ry="288.5"/>
+		<ellipse transform="rotate(68.89)" cx="387.9" cy="-171.9" rx="151.2" ry="288.5"/>
+		<circle cx="300" cy="300" r="288"/>
+	</g>
+	<circle id="a" cx="548.3" cy="445.9" r="20" fill="url(#e)"/>
+	<use transform="translate(-189.1 52.26)" xlink:href="#a"/>
+	<use transform="translate(-445.5 -85.7)" xlink:href="#a"/>
+	<use transform="translate(-363.5 -141)" xlink:href="#a"/>
+	<use transform="translate(-419.8 -335.4)" xlink:href="#a"/>
+	<use transform="translate(-237.4 -307.6)" xlink:href="#a"/>
+</svg>

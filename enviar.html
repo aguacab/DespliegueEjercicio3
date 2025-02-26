@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Problema</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg bg-warning">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="./images/q2.svg" alt="Logo" width="50" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mates.html">Matemáticas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="enviar.html">Enviar Problema</a>
+                    </li>
+                </ul>
+                <form class="d-flex ms-auto">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                    <button class="btn btn-outline-dark me-4" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Formulario horizontal -->
+    <div class="container mt-5">
+        <form id="problemForm">
+            <div class="row mb-3">
+                <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nombre" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="materia" class="col-sm-2 col-form-label">Materia</label>
+                <div class="col-sm-10">
+                    <select class="form-select" id="materia">
+                        <option>Matemáticas</option>
+                        <option>Física</option>
+                        <option>Química</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="enunciado" class="col-sm-2 col-form-label">Enunciado</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="enunciado" rows="3" required></textarea>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="solucion" class="col-sm-2 col-form-label">Solución</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="solucion" rows="3" required></textarea>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="reset" class="btn btn-secondary">Cancelar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <!-- Footer -->
+        <div class="row">
+            <div class="col-12 footer">  <p>&copy; 2025 DIW</p></div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   
+   <!-- Validación del formulario -->
+   <script>
+        // Espera a que el contenido del documento esté completamente cargado
+        document.addEventListener('DOMContentLoaded', function () {
+            // Selecciona el formulario por su ID
+            const form = document.getElementById('problemForm');
+            // Selecciona todos los inputs, textareas y selects dentro del formulario
+            const inputs = form.querySelectorAll('input, textarea, select');
+    
+            // Itera sobre cada input, textarea y select
+            inputs.forEach(input => {
+                // Añade un evento 'input' a cada elemento
+                input.addEventListener('input', function () {
+                    // Verifica si el valor del input es válido
+                    if (input.checkValidity()) {
+                        // Si es válido, elimina la clase 'is-invalid' y añade la clase 'is-valid'
+                        input.classList.remove('is-invalid');
+                        input.classList.add('is-valid');
+                    } else {
+                        // Si no es válido, elimina la clase 'is-valid' y añade la clase 'is-invalid'
+                        input.classList.remove('is-valid');
+                        input.classList.add('is-invalid');
+                    }
+                });
+            });
+    
+            // Añade un evento 'submit' al formulario
+            form.addEventListener('submit', function (event) {
+                // Previene el comportamiento por defecto del formulario (no se envía)
+                event.preventDefault();
+                // Verifica si el formulario es válido
+                if (form.checkValidity()) {
+                    // Si es válido, muestra una alerta de éxito
+                    alert('Formulario enviado correctamente');
+                    // Reinicia el formulario
+                    form.reset();
+                    // Elimina las clases de validación de todos los inputs, textareas y selects
+                    inputs.forEach(input => {
+                        input.classList.remove('is-valid', 'is-invalid');
+                    });
+                } else {
+                    // Si no es válido, añade la clase 'is-invalid' a los elementos no válidos
+                    inputs.forEach(input => {
+                        if (!input.checkValidity()) {
+                            input.classList.add('is-invalid');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
